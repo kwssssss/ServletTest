@@ -12,8 +12,24 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class HelloServlet
  */
-@WebServlet("/hellooo")
+//@WebServlet("/hellooo")
+
+@WebServlet(urlPatterns = {"/hello", "/world"})
 public class HelloServlet extends HttpServlet {
+	@Override
+	public void destroy() {
+		// TODO Auto-generated method stub
+		super.destroy();
+		System.out.println("HelloServlet destroy 호출"); //콘솔에 보내는 호출
+	}
+
+	@Override
+	public void init() throws ServletException {
+		// TODO Auto-generated method stub
+		super.init();
+		System.out.println("HelloServlet init 호출"); //콘솔에 보내는 호출
+	}
+
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -21,7 +37,6 @@ public class HelloServlet extends HttpServlet {
      */
     public HelloServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
