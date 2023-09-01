@@ -11,12 +11,23 @@
   </welcome-file-list>
   
  
- <!-- <servlet>
+<!-- 
+	<servlet>
   	<servlet-name>helloServlet</servlet-name>
   	<servlet-class>com.test.HelloServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
+  	<init-param>
+  		<param-name>hellohello</param-name>
+  		<param-value>d:\\test</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>byebye</param-name>
+  		<param-value>d:\\testest</param-value>
+  	</init-param>
+  	</servlet>
+  	<servlet-mapping>
   	<servlet-name>helloServlet</servlet-name>
   	<url-pattern>/world</url-pattern>
-  </servlet-mapping> -->
+  	</servlet-mapping> 
+  -->
+  
 </web-app> 

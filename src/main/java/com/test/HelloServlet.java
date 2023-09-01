@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +15,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 //@WebServlet("/hellooo")
 
-@WebServlet(urlPatterns = {"/hello", "/world"})
+@WebServlet(
+		urlPatterns = {"/hello", "/world"},
+		initParams = {
+			@WebInitParam(name="hellohello", value="d:\\\\test"),
+			@WebInitParam(name="byebye", value="d:\\\\testest")
+		}
+		)
 public class HelloServlet extends HttpServlet {
 	@Override
 	public void destroy() {
@@ -44,11 +51,17 @@ public class HelloServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		String hellohello = getInitParameter("hellohello");
+		String byebye = getInitParameter("byebye");
+		
 		System.out.println("TestServlet 실행");
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
 		out.println("<body>");
 		out.println("<h1>Hello<h1>");
+		out.println(hellohello + "<br>");
+		out.println(byebye + "<br>");
 		out.println("</body>");
 		out.println("</html>"); //println 반복
 	}
